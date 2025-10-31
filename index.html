@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo</title>
-</head>
-<body>
-    <h1 id="heading">Todo-App</h1>
-    <input type="text" placeholder="Enter your Todo"></input>
-    <div id="buttons">
-        <button>Add</button>
-        <button>Delete</button>
-        <button>Edit</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Todos</h1>
+
+      <div class="input-section">
+        <input type="text" id="todoInput" placeholder="Add a new todo..." />
+        <button id="addBtn">Add</button>
+      </div>
+
+      <ul id="todoList"></ul>
     </div>
-</body>
+
+    <script src="script.js"></script>
+  </body>
 </html>
