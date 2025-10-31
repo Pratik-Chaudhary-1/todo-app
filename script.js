@@ -44,6 +44,39 @@ function toggleComplete(id) {
   }
 }
 
+//edit todo
+function editTodo(id) {
+  const li = document.querySelector(`[data-id="${id}"]`);
+  const textSpan = li.querySelector(".todo-text");
+  const actions = li.querySelector(".todo-actions");
+
+  const currentText = todos.find((t) => t.id === id).text;
+
+  textSpan.innerHTML = `<input type="text" class="edit-input" value="${currentText}">`;
+  const editInput = textSpan.querySelector(".edit-input");
+  editInput.focus();
+
+  actions.innerHTML = `
+        <button class="save-btn" onclick="saveTodo(${id})">Save</button>
+        <button class="cancel-btn" onclick="renderTodos()">Cancel</button>
+    `;
+}
+
+//save edited todo
+function saveTodo(id) {
+  const li = document.querySelector(`[data-id="${id}"]`);
+  const editInput = li.querySelector(".edit-input");
+  const newText = editInput.value.trim();
+
+  if (newText === "") return;
+
+  const todo = todos.find((t) => t.id === id);
+  if (todo) {
+    todo.text = newText;
+    renderTodos();
+  }
+}
+
 // Render all todos
 function renderTodos() {
   todoList.innerHTML = "";
