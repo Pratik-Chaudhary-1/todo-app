@@ -29,6 +29,21 @@ function addTodo() {
   renderTodos();
 }
 
+//delete todo
+function deleteTodo(id) {
+  todos = todos.filter((todo) => todo.id !== id);
+  renderTodos();
+}
+
+//Toggle complete
+function toggleComplete(id) {
+  const todo = todos.find((t) => t.id === id);
+  if (todo) {
+    todo.completed = !todo.completed;
+    renderTodos();
+  }
+}
+
 // Render all todos
 function renderTodos() {
   todoList.innerHTML = "";
